@@ -1,0 +1,124 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.notebook{
+    display: grid;
+    grid-template-columns: 2fr 1fr 12fr;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-areas: 
+    "circle line box"
+    "circle2 line box"
+    "circle3 line box";
+    background-color: #e5e5f7;
+    gap: 8em 0;
+    width: 90%;
+    max-width: 425px;
+    background-size: 20px 20px;
+    background-image:  repeating-linear-gradient(0deg, #444cf7, #444cf7 1px, #e5e5f7 1px, #e5e5f7);
+    animation: notebookAnimation 4s ease-in-out;
+}
+
+.line{
+    grid-area: line;
+    width: 2px;
+    background-color: red;
+}
+
+.circle,
+.circle2,
+.circle3{
+    display: block;
+    height: 2rem;
+    margin: 2em auto;
+    width: 2rem;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.circle{
+    grid-area: circle;
+}
+.circle2{
+    grid-area: circle2;
+}
+.circle3{
+    grid-area: circle3;
+}
+.box{
+    height: 100%;
+    width: 100%;
+    grid-area: box;
+    place-self: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.notebook__title{
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    animation: typying 4s ease-in-out 4s forwards;
+}
+
+.specialperson{
+    position: relative;
+    color: transparent;
+    background-image: linear-gradient(to top, rgb(151, 151, 151) 0 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: colorShow 4s infinite alternate;
+}
+
+.specialperson::after{
+    position: absolute;
+    content: "";
+    background-image: url(../heart-svgrepo-com\ \(1\).svg);
+    display: block;
+    width: 40px;
+    height: 40px;
+    top: 0.3em;
+    right: -1em;
+    transform: rotate(40deg);
+}
+
+.specialperson__img{
+    width: 90%;
+    max-height: 40vh;
+    object-fit: cover;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    animation: typying 4s ease-in-out 4s forwards;
+}
+
+@keyframes colorShow {
+    25%{
+        background-image: linear-gradient(to top, rgb(207, 7, 7) 0% 25% , rgb(151, 151, 151) 25% 100%);
+    }
+    50%{
+        background-image: linear-gradient(to top, rgb(207, 7, 7) 0% 50% , rgb(151, 151, 151) 50% 100%);
+    }
+    75%{
+        background-image: linear-gradient(to top, rgb(207, 7, 7) 0% 75% , rgb(151, 151, 151) 75% 100%);
+    }
+    100%{
+        background-image: linear-gradient(to top, rgb(207, 7, 7) 0% 100%);
+    }
+}
+
+@keyframes typying {
+    to{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+@keyframes notebookAnimation {
+    from{
+        transform: rotateZ(0) scale(0);
+    }
+    to{
+        transform: rotateZ(360deg) scale(1);
+    }
+}
