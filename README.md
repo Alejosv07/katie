@@ -9,5 +9,5 @@ Link: https://alejosv07.github.io/katie/
 
 <br/>
 
-**Mobile:**
+**Mobile:**  
 ![imgDesktop](CaptureKatieMobile.PNG)
